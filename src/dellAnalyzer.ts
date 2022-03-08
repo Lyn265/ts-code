@@ -52,6 +52,5 @@ export default class DellAnalyzer implements Analyzer {
     const fileContent = this.generateJsonContent(courseInfo, filePath)
     return JSON.stringify(fileContent)
   }
-
   private constructor() {}
 }

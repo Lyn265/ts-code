@@ -1,7 +1,6 @@
 //ts -> d.ts -> js
 import path from 'path'
 import superagent from 'superagent'
-import DellAnalyzer from './dellAnalyzer'
 import fs from 'fs'
 
 export interface Analyzer {
@@ -27,7 +26,9 @@ class Crowller {
   }
 }
 
-const secretKey = 'x3b174jsx'
-const url = `http://www.dell-lee.com/typescript/demo.html?secrect=${secretKey}`
-const analyzer = DellAnalyzer.getInstance()
-new Crowller(analyzer, url)
+// const secretKey = 'x3b174jsx'
+// const url = `http://www.dell-lee.com/typescript/demo.html?secrect=${secretKey}`
+// const analyzer = DellAnalyzer.getInstance()
+// new Crowller(analyzer, url)
+
+export default Crowller
