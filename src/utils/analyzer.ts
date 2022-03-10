@@ -1,6 +1,6 @@
 import * as cheerio from 'cheerio'
 import fs from 'fs'
-import { Analyzer } from './crowller'
+import { IAnalyzer } from './crowller'
 interface CourseInfo {
   title: string
   count: number
@@ -12,14 +12,14 @@ interface CourseResult {
 interface Content {
   [propName: number]: CourseInfo[]
 }
-export default class DellAnalyzer implements Analyzer {
-  //单例模式 不允许外部类里实例化该类（DellAnalyzer）
-  private static instance: DellAnalyzer
+export default class Analyzer implements IAnalyzer {
+  //单例模式 不允许外部类里实例化该类（Analyzer）
+  private static instance: Analyzer
   static getInstance() {
     if (!this.instance) {
-      this.instance = new DellAnalyzer()
+      this.instance = new Analyzer()
     }
-    return DellAnalyzer.instance
+    return Analyzer.instance
   }
 
   private getCourseInfo(html: string) {

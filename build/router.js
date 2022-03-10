@@ -56,6 +56,7 @@ router.get('/getData', checkLogin, function (req, res) {
     var url = "http://www.dell-lee.com/typescript/demo.html?secrect=".concat(secretKey);
     var analyzer = analyzer_1.default.getInstance();
     new crowller_1.default(analyzer, url);
+    res.json((0, util_1.getResponseData)(true));
 });
 router.get('/showData', checkLogin, function (req, res) {
     try {

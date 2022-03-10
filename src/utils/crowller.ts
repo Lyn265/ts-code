@@ -3,7 +3,7 @@ import path from 'path'
 import superagent from 'superagent'
 import fs from 'fs'
 
-export interface Analyzer {
+export interface IAnalyzer {
   analyze: (html: string, filePath: string) => string
 }
 class Crowller {

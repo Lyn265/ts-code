@@ -67,6 +67,7 @@ router.get('/getData', checkLogin, (req: typeWithBody, res: Response) => {
   const url = `http://www.dell-lee.com/typescript/demo.html?secrect=${secretKey}`
   const analyzer = Analyzer.getInstance()
   new Crowller(analyzer, url)
+  res.json(getResponseData(true))
 })
 router.get('/showData', checkLogin, (req: typeWithBody, res: Response) => {
   try {

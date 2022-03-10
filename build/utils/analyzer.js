@@ -24,16 +24,16 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 var cheerio = __importStar(require("cheerio"));
 var fs_1 = __importDefault(require("fs"));
-var DellAnalyzer = /** @class */ (function () {
-    function DellAnalyzer() {
+var Analyzer = /** @class */ (function () {
+    function Analyzer() {
     }
-    DellAnalyzer.getInstance = function () {
+    Analyzer.getInstance = function () {
         if (!this.instance) {
-            this.instance = new DellAnalyzer();
+            this.instance = new Analyzer();
         }
-        return DellAnalyzer.instance;
+        return Analyzer.instance;
     };
-    DellAnalyzer.prototype.getCourseInfo = function (html) {
+    Analyzer.prototype.getCourseInfo = function (html) {
         var courseInfo = [];
         var $ = cheerio.load(html);
         var courseItems = $('.course-item');
@@ -49,7 +49,7 @@ var DellAnalyzer = /** @class */ (function () {
         };
     };
     //存到json文件里
-    DellAnalyzer.prototype.generateJsonContent = function (courseInfo, filePath) {
+    Analyzer.prototype.generateJsonContent = function (courseInfo, filePath) {
         var fileContent = {};
         if (fs_1.default.existsSync(filePath)) {
             //读取已有文件内容
@@ -58,11 +58,11 @@ var DellAnalyzer = /** @class */ (function () {
         fileContent[courseInfo.time] = courseInfo.data;
         return fileContent;
     };
-    DellAnalyzer.prototype.analyze = function (html, filePath) {
+    Analyzer.prototype.analyze = function (html, filePath) {
         var courseInfo = this.getCourseInfo(html);
         var fileContent = this.generateJsonContent(courseInfo, filePath);
         return JSON.stringify(fileContent);
     };
-    return DellAnalyzer;
+    return Analyzer;
 }());
-exports.default = DellAnalyzer;
+exports.default = Analyzer;
