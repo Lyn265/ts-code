@@ -2,7 +2,7 @@ import express, { Request, Response, NextFunction } from 'express';
 import cookieSession from 'cookie-session';
 import './controller/LoginController';
 import './controller/CrowllerController';
-import { router } from './controller/decorator';
+import router from './router';
 const app = express();
 app.use(express.urlencoded({ extended: false }));
 app.use(

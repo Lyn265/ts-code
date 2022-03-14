@@ -4,7 +4,7 @@ import fs from 'fs';
 import Crowller from '../utils/crowller';
 import Analyzer from '../utils/analyzer';
 import { getResponseData } from '../utils/util';
-import { controller, get, use } from './decorator';
+import { controller, use, get } from '../decorator';
 interface bodyRequest extends Request {
   body: {
     [key: string]: string | undefined;

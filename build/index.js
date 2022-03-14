@@ -7,7 +7,7 @@ var express_1 = __importDefault(require("express"));
 var cookie_session_1 = __importDefault(require("cookie-session"));
 require("./controller/LoginController");
 require("./controller/CrowllerController");
-var decorator_1 = require("./controller/decorator");
+var router_1 = __importDefault(require("./router"));
 var app = (0, express_1.default)();
 app.use(express_1.default.urlencoded({ extended: false }));
 app.use((0, cookie_session_1.default)({
@@ -19,7 +19,7 @@ app.use(function (req, res, next) {
     req.body.name = 'wahaha';
     next();
 });
-app.use(decorator_1.router);
+app.use(router_1.default);
 app.listen(3000, function () {
     console.log('app is running');
 });
